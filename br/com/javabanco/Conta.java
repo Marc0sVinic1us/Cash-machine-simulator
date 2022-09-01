@@ -6,9 +6,11 @@ package br.com.javabanco;
 	 */
 
 import java.io.Serializable;
+import java.util.*;
 
 public class Conta implements Serializable {
 
+	static Scanner sc = new Scanner(System.in);
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -41,6 +43,24 @@ public class Conta implements Serializable {
 		
 		public double getSaldo() {
 			return this.saldo;
+		}
+
+		public static int perguntaNum() {
+
+			int numero;
+
+			System.out.println("Digite numero da Conta:");
+			numero = sc.nextInt();
+			return numero;
+		}
+
+		public static int perguntaAgc(){
+
+			int agencia;
+
+			System.out.println("Digite numero da Conta:");
+			agencia = sc.nextInt();
+			return agencia;
 		}
 		
 	//geters e seters
