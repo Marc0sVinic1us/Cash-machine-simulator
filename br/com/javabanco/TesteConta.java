@@ -7,34 +7,48 @@ public class TesteConta {
 
 	public static void main(String[] args) {
 
-		int a = 0, b = 0;
-		double c = 0, d = 0, e = 0;
-		String f = "", g = "";
+		int numero = 0, agencia = 0, contador = 0;
+		double saldo = 0, deposito = 0, saque = 0;
+		String resposta1 = "", resposta2 = "";
 		
 	try (Scanner sc = new Scanner(System.in)) {
 		Conta cc = new Conta();
 		
 		System.out.println("Digite numero da Conta:");
-		a = sc.nextInt();
+		numero = sc.nextInt();
 		System.out.println("Digite agencia da Conta:");
-		b = sc.nextInt();
+		agencia = sc.nextInt();
 		
 		
 		/** Números de segurança da conta:
 		 *  Se caso forem colocados corretamente permite o acesso às ações da conta,
-		 *  se não, bloqueia o acesso à conta. 
+		 *  se não, dá mais 3 chances ao usuário, e se persistir, bloqueia o acesso à conta. 
 		 *  (Número, agência) = (123,911)
 		 */
 		
+		while ((numero != 123 || agencia != 911) && contador < 3) {
+
+			System.out.println("Numero ou agencia incorreta!\n");
+			System.out.println("Resta " + (3 - contador) + " tentativas");
+
+			System.out.println("Digite numero da Conta:");
+			numero = sc.nextInt();
+			System.out.println("Digite agencia da Conta:");
+			agencia = sc.nextInt();
+			
+			contador++;
+			
+		}
+
 		
-		if (a == 123 && b == 911) {  
+		if (numero == 123 && agencia == 911) {  
 		
 			System.out.println("Digite o saldo da Conta:");
-			c = sc.nextDouble();
+			saldo = sc.nextDouble();
 			
-			cc.setNumero(a);
-			cc.setAgencia(b);
-			cc.depositar(c);
+			cc.setNumero(numero);
+			cc.setAgencia(agencia);
+			cc.depositar(saldo);
 			
 			
 			/** Ao acessar a conta, dá a opção ao usuário de fazer um depósito.
@@ -44,19 +58,16 @@ public class TesteConta {
 			
 			
 			System.out.println("Deseja depositar algum valor? (S/N)");
-			g = sc.next();
-			if (g.equalsIgnoreCase("S")) {
+			resposta1 = sc.next();
+			if (resposta1.equalsIgnoreCase("S")) {
 			
 				System.out.println("Digite valor de deposito:");
-				d = sc.nextDouble();
-				cc.depositar(d);
-				System.out.println("Saldo final: " + cc.getSaldo() + " reais");
+				deposito = sc.nextDouble();
+				cc.depositar(deposito);
+				System.out.println("Saldo da conta: " + cc.getSaldo() + " reais");
 				
-				System.out.println("Obrigado, tenha um bom dia!");
-				
-			} if (g.equalsIgnoreCase("N")) {
-		
-				
+			} 
+
 				/**Se o usuário não queira fazer um depósito, ele dá a opção de fazer uma retirada.
 				 * Se sim, pede o valor dela e subtrai do saldo inicial,
 				 * Se não, o programa encerra e agradece.
@@ -64,27 +75,29 @@ public class TesteConta {
 				
 				
 					System.out.println("Deseja retirar algum valor? (S/N)");
-					f = sc.next();
-					if (f.equalsIgnoreCase("S")) {
+					resposta2 = sc.next();
+					if (resposta2.equalsIgnoreCase("S")) {
 						
 						System.out.println("Digite o valor a ser retirado");
 						
-						e = sc.nextDouble();
-						cc.retirar(e);
+						saque = sc.nextDouble();
+						cc.retirar(saque);
 						
 						System.out.println("Saldo final: " + cc.getSaldo() + " reais");
 						System.out.println("Obrigado, tenha um bom dia!");
 					
-			   } else if (f.equalsIgnoreCase("N")) {
+			   } else {
 				
 				 System.out.println("Saldo final: " + cc.getSaldo());
 				 System.out.println("Obrigado, tenha um bom dia!");
 			 }
-		  }
-			
+		  
 	    } else {
-			System.out.println("Numero ou agencia incorreta");
+			System.out.println("Acesso negado, tente novamente mais tarde");
 	  }
+		
     }
+	
   }
+	
 }
