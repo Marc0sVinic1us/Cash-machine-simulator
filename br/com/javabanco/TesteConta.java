@@ -78,7 +78,6 @@ public class TesteConta {
 			   } else if (f.equalsIgnoreCase("N")) {
 				
 				 System.out.println("Saldo final: " + cc.getSaldo());
-                 System.out.println("-----------------------------------");
 				 System.out.println("Obrigado, tenha um bom dia!");
 			 }
 		  }
