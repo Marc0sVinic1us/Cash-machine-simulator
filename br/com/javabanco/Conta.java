@@ -49,7 +49,7 @@ public class Conta implements Serializable {
 
 			int numero;
 
-			System.out.println("Digite numero da Conta:");
+			System.out.println("Digite numero da conta:");
 			numero = sc.nextInt();
 			return numero;
 		}
@@ -58,7 +58,7 @@ public class Conta implements Serializable {
 
 			int agencia;
 
-			System.out.println("Digite numero da Conta:");
+			System.out.println("Digite numero da agência:");
 			agencia = sc.nextInt();
 			return agencia;
 		}

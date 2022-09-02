@@ -68,12 +68,14 @@ public class TesteConta {
 				System.out.println("Digite valor de deposito:");
 				deposito = sc.nextDouble();
 				cc.depositar(deposito);
-				System.out.println("Saldo da conta: " + cc.getSaldo() + " reais\n");
+				System.out.printf("Saldo da conta: R$" + "%.3f", cc.getSaldo());
+				System.out.println("\n");
+
 				
 			} 
 
 				/**Se o usuário não queira fazer um depósito, ele dá a opção de fazer uma retirada.
-				 * Se sim, pede o valor dela e subtrai do saldo inicial,
+				 * Se sim, pede o valor dela e subtrai do saldo anterior,
 				 * Se não, o programa encerra e agradece.
 				 */
 				
@@ -87,12 +89,14 @@ public class TesteConta {
 						saque = sc.nextDouble();
 						cc.retirar(saque);
 						
-						System.out.println("Saldo final: " + cc.getSaldo() + " reais\n");
+						System.out.printf("Saldo final: R$" + "%.3f", cc.getSaldo());
+						System.out.println("\n");
 						System.out.println("Obrigado, tenha um bom dia!");
 					
 			   } else {
 				
-				 System.out.println("Saldo final: " + cc.getSaldo() + " reais\n");
+				 System.out.printf("Saldo final: R$" + "%.3f", cc.getSaldo());
+				 System.out.println("\n");
 				 System.out.println("Obrigado, tenha um bom dia!");
 			 }
 		  
